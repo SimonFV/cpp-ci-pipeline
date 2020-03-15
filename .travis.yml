@@ -1,0 +1,27 @@
+dist: trusty
+
+language: cpp
+
+compiler: clang
+
+addons:
+  sonarcloud:
+    organization: "simonfv"
+    token:
+      secure: "2Ssn8O72XAbcUuzL+J+qX1xZ+Jop+L66B4hurTEatTQ19LkZBJ0eDF/JOc4uRqt6FB541D9osBG4ZSBW
+      /3gTWReOBxBOgCBICjgQ1Wo/GYSzGmlaUmY/YDcxzxSYFWgqT3ZGYjpvVudMMFqYu03QVhykQbdtLo0CDRkNP3aPqee
+      yCYzSW7uorJmMfo6kDR7xhZG8hZBIaar69lzVYEJWNikdzT3k176zY6S5AZwpE4Lnhyfq2L3bin23cjLzWpHcFm0ZGh
+      S2PnDLDFeqfzHRi5I6ACa2XAe63oD7dOI8mKRlAFotVmU+Kv1Y5EIu6VVoEo14uo/K0LNfWs1baDp+WMTwRHIJYvSUK
+      sOPWnBHvjEqXdPe0Qc8RLFlJSV/EqbCHcG6H8uc7SHkx6KUp9PUZCSLORZdnPR6A9jUxuZHsLLGjUxVZTWNpsMVlheW
+      gDwgVit7Od1mkJxyKqvXtmDVPW5A14kLaxUa3B4O40ijgyAJxryyPIKPjOiHf3S7NlhNHofc64Fwt8KxzCpsPI2BaGNO
+      zgBtnMyzQcJHuKTZDSiZ3p0pZjQ3b+4tgQ/k8QpaWbXzu5+D1YLbmbTQ2FFk4d5O+i3gQDty1RYSUC0uP+Xqgomzt3ZE
+      2Tr3s26qkTgKJ/PmaXltsDK6qjbAUX/CCcU7RwBt1cTxcduFbqqikDQ="
+
+script:
+- git clone https://github.com/google/googletest.git
+- mkdir build
+- cd build
+- cmake ..
+- make
+- ctest
+- sonar-scanner
