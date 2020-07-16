@@ -16,7 +16,6 @@ addons:
 
 script:
 - git clone https://github.com/google/googletest.git
-- rm -f build bw-output && mkdir build && cd build && cmake ..
 - build-wrapper-linux-x86-64 --out-dir bw-output cmake --build build/
 - cd build
 - ctest
